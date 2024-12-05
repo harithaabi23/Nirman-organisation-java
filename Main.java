@@ -1,12 +1,15 @@
-package day9;
+package day10;
 
 public class Main {
+	public static void main(String [] args){
+		Car def= new Car();	
+		def.displayCarDetails();
+		
+		Car single= new Car("tata");
+		single.displayCarDetails();
+		
+		Car doub= new Car(2000,"mahendra");
+		doub.displayCarDetails();
+	}
 	
-int a;
-int b ;
-	public static void main(String[] args) {
-	Calculator cal = new Calculator();
-	cal.add(20, 30);
-   
-    System.out.println(cal.mul(2,3 ));
-}}
+}
