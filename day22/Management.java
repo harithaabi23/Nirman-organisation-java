@@ -14,16 +14,15 @@ public static void main(String[] args) {
 		System.out.println("Select an option:");
 		System.out.println("1. Add Book Details");
 		System.out.println("2. update Book Details");
-		System.out.println("3 for remove");
-		System.out.println("4 for show");
+		System.out.println("3 remove details");
+		System.out.println("4 display data");
 		System.out.println("0. Exit");
-		System.out.println("enter your number");
+		System.out.println("enter your choice");
 		int key=sc.nextInt();
 		sc.nextLine();
 		if(key==1) {
 			System.out.println("enter book title");
 			String title=sc.nextLine();
-			
 			System.out.println("author name");
 			String author=sc.nextLine();
 			System.out.println("enter the price");
@@ -31,16 +30,16 @@ public static void main(String[] args) {
 			System.out.println("no of copies");
 			int numberOfCopies=sc.nextInt();
 			
-			al.add(book=new Book(title, author, price, numberOfCopies));
-			
-			
+			al.add(book=new Book(title, author, price, numberOfCopies));	
 		}
+		
 		if(key==2) {
 			System.out.println("enter the book name");
 			String title2=sc.nextLine();
-			
+			boolean isThere= false;
 			for(Book arr: al) {
 				if(title2.equalsIgnoreCase(arr.getTitle())){
+					isThere= true;
 					System.out.println("rename book");
 					String title=sc.nextLine();
 					arr.setTitle(title);
@@ -52,36 +51,38 @@ public static void main(String[] args) {
 					arr.setPrice(price);
 					System.out.println("rename no of copies");
 					int numberOfCopies=sc.nextInt();
-					arr.setNumberOfCopies(numberOfCopies);
-					
+					arr.setNumberOfCopies(numberOfCopies);	
 				}
 			}
+			if(!isThere) {
+				System.out.println("book not found");
+			}
 		}
+		
 		if(key==3) {
 			System.out.println("enter the book name");
 			String title3=sc.nextLine();
-
+			boolean isThere1= false;
 			for(Book arr1: al) {
-				if(title3.equalsIgnoreCase(arr1.getTitle())){
+				if(title3.equalsIgnoreCase(arr1.getTitle()))
+				isThere1= true;
 				al.remove(arr1);
 					break;
 				}
+			if(!isThere1) {
+				System.out.println("book not found");
 			}
 		}
 			
 		if(key==4) {
 		System.out.println(al);
 		}
+		
 		if(key==0) {
 			istrue=false;
-			System.out.println("program has stopped");
-		}
-		
-	
-	
-	
+			System.out.println("program exited");
+		}	
 	}
-	
-	
 }
 }
+
